@@ -134,6 +134,20 @@ button,input {
     height: fit-content;
     flex-basis: 100%;
 }
+
+.about::before{
+    content: "";
+    position: absolute;
+    background-color:var(--bg-accent-purple);
+    right: auto;
+    bottom: 150px;
+    left: auto;
+    width: 76%;
+    height: 160px;
+    
+
+}
+
 .about-desc{
     padding-left: 1rem;
     display: flex;
@@ -166,7 +180,7 @@ button,input {
 /*---WORK-SLIDESHOW---*/
 
 .showcase-container{
-    margin: 0.88rem 1rem 0;
+    margin: 0.88rem 4rem 0;
     padding: 0.5rem;
     flex-basis: 100%;
     position: relative;
@@ -424,6 +438,10 @@ img {
 /* --EMAIL--*/
 
 
+#email-copy{
+    font-size: 2rem;
+}
+
 
 /* --INFO-POINTS-- */
 
@@ -533,11 +551,8 @@ img {
     }
 
     .about::before{
-        content: '';
-        position: absolute;
         width: 38%;
         height: 48%;
-        background-color:var(--bg-accent-purple);
         right: 3rem;
         top: -0.64rem;
     }
