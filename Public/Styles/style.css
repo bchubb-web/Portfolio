@@ -127,6 +127,7 @@ button,input {
 
 .about{
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     padding-bottom: 1rem;
     margin: 3.6rem 0;
@@ -140,7 +141,7 @@ button,input {
     position: absolute;
     background-color:var(--bg-accent-purple);
     right: auto;
-    bottom: 150px;
+    top: calc(100% - 150px);
     left: auto;
     width: 76%;
     height: 160px;
@@ -484,6 +485,20 @@ img {
 
 /*---DESKTOP-ONLY---*/
 
+
+@media (max-width:27rem) {
+    .showcase-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6 1fr);
+    }
+
+    .about::before{
+        top: 50%;
+        height: 40%;
+    }
+}
+
+
 @media (min-width: 40rem) {
 
     .head-all>h1{
@@ -545,15 +560,15 @@ img {
     }
 
     .showcase-container{
-        margin-right: 6rem;
-        margin-left: auto;
+        margin-right: 3rem;
+        margin-left: 2rem;
         position: relative;
     }
 
     .about::before{
-        width: 38%;
-        height: 48%;
-        right: 3rem;
+        width: 42%;
+        height: 44%;
+        right: 2rem;
         top: -0.64rem;
     }
 
@@ -609,6 +624,10 @@ img {
 @media (min-width: 70rem) {
     .about{
         margin: 16rem 0 8rem 6rem;
+    }
+
+    .about::before{
+        right: 4rem;
     }
 
     .about-desc{
