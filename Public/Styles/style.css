@@ -664,6 +664,7 @@ img {
     }
     
     .sales-points {
+        max-width: 84rem;
         border-radius: 12px;
         margin: 0 10rem 3rem;
         padding: 6vh 6rem;
