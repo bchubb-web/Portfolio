@@ -21,13 +21,13 @@ SVG Icons - svgicons.sparkk.fr
 ----- */
 
 .svg-icon-link{
-    width: 1.6em;
-    height: 1.6em;
+    width: 1.6rem;
+    height: 1.6rem;
 }
 
 .svg-icon-button {
-    width: 2.8em;
-    height: 2.8em;
+    width: 2.8rem;
+    height: 2.8rem;
 }
   
 .svg-icon path,
@@ -72,7 +72,7 @@ h1 {
 }
 h2 {
     font-size: 1.6rem;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 }
 
 button,input {
@@ -110,12 +110,12 @@ button,input {
     outline: 3px solid #eee;
     /*outline-offset: .25em;*/
     display: inline-block;
-    margin: 0 0 0.5em;
+    margin: 0 0 0.5rem;
     padding: 1.6% 4% 2%;
 }
 
 .full{
-    height: 16vh;
+    height: 100vh;
 }
 
 .talk{
@@ -144,6 +144,7 @@ button,input {
     top: calc(100% - 150px);
     left: auto;
     width: 76%;
+    max-width: 600px;
     height: 160px;
     
 
@@ -186,6 +187,7 @@ button,input {
     flex-basis: 100%;
     position: relative;
     height: fit-content;
+    max-width: 700px;
     background-color: var(--bg-main-purple);
     overflow-x: scroll;
 }
@@ -311,11 +313,6 @@ img {
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-    .text {
-        font-size: 11px;
-    }
-}
 
 .numbertext ,.numbertext>a{
     color: var(--text-simple-orange);
@@ -335,7 +332,7 @@ img {
 
 .links{
     margin-top: 8px;
-    height: 3em;
+    height: 3rem;
     display: flex;
     justify-content: space-around;
 }
@@ -348,7 +345,7 @@ img {
 
 .links-button{
     cursor: pointer;
-    height: 3em;
+    height: 3rem;
     margin-top: 8px;
     text-align: center;
 }
@@ -509,7 +506,7 @@ img {
         outline: 3px solid #eee;
         /*outline-offset: .25em;*/
         display: inline-block;
-        margin: 0 0 0.5em;
+        margin: 0 0 0.5rem;
         padding: 1.6% 4% 2%;
     }
     
@@ -520,7 +517,37 @@ img {
         background-color: var(--text-main-purple);
         border-radius: 100%;
         height: 0px;
-        transition-duration: 1000ms;
+        transition: 
+        width .3s cubic-bezier(0.7, -0.6, 0.4, 1.5),
+        height .3s cubic-bezier(0.7, -0.6, 0.4, 1.5),
+        opacity .3s ease-out
+        ;
+    }
+
+    .is-popping{
+        height: 0;
+        width: 0;
+        opacity: 0;
+        animation-name: none;
+    }
+
+    @keyframes bubbleSmall {
+        from{
+            transform: translateY(32px);
+        }
+        to{
+            transform: translateY(0px);
+
+        }
+    }
+
+    @keyframes bubbleBig {
+        from{
+            transform: translateY(0px);
+        }
+        to{
+            transform: translateY(24px);
+        }
     }
 
     .bubble:hover{
@@ -532,6 +559,7 @@ img {
         left: 15vw;
         width: 10%;
         padding-bottom: 10%;
+        animation: bubbleSmall 5s infinite alternate-reverse;
     }
 
     #bubble-right{
@@ -539,6 +567,7 @@ img {
         right: 25vw;
         width: 16%;
         padding-bottom: 16%;
+        animation: bubbleBig 3s infinite alternate-reverse;
     }
 
     .head-all>p{

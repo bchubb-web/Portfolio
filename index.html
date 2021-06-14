@@ -13,8 +13,8 @@
     </head>
     <body>
         <div class="full head-all">
-            <div class="bubble" id="bubble-left"></div>
-            <div class="bubble" id="bubble-right"></div>
+            <div class="bubble" id="bubble-left" onclick="explode(this)"></div>
+            <div class="bubble" id="bubble-right" onclick="explode(this)"></div>
             <p>Welcome to</p>
             <h1>bChubb</h1>
             <p class="talk">Web Development</p>
@@ -230,7 +230,9 @@
 
                 }
             }
+            function explode(bubble){
+                bubble.classList.add("is-popping");
+            }
         </script>
-        <script src="js/slide.js"></script>
     </body>
 </html>
