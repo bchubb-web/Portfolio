@@ -350,8 +350,13 @@ img {
     text-align: center;
 }
 
-.link>svg:hover{
-    outline: 2px solid var(--text-bold-orange);
+.link>svg:not(.link>.links-button, .svg-icon-button){
+    transition-duration: 0.45s;
+    transition-timing-function: ease;
+}
+
+.link>svg:not(.link>.links-button, .svg-icon-button):hover{
+    transform: scale(1.125);
 }
 
 /*---PROJECT-ONLY---*/
