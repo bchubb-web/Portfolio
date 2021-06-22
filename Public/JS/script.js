@@ -48,6 +48,7 @@ function explode(bubble){
 
 function open(plan){
     var plan =  document.getElementById("plan-"+plan);
+
     plan.style.display="none";
 
 }

@@ -134,6 +134,8 @@ button,input {
     padding-bottom: 1rem;
     margin: 3.6rem 0;
     justify-content: space-around;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     flex-basis: 100%;
 }
@@ -188,6 +190,8 @@ button,input {
     padding: 0.5rem;
     flex-basis: 100%;
     position: relative;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     max-width: 700px;
     background-color: var(--bg-main-purple);
@@ -246,6 +250,8 @@ button,input {
 }
 
 #showcase-elliott>a>span{
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     position: relative;
 }
@@ -340,6 +346,8 @@ img {
 }
 
 .link{
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     text-align: center;
     cursor: pointer;
@@ -480,6 +488,8 @@ img {
 /* --EXPECT-- */
 
 .expect-header{
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     padding: 0.24rem 1.8rem 0.8rem;
     margin: 3rem 0 0 20%;
@@ -491,6 +501,8 @@ img {
 
 .expect-contain{
     width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -526,16 +538,21 @@ img {
     color: var(--text-bold-orange);
 }
 
+.plans>h5{
+    color: var(--text-simple-orange);
+}
+
 .plans-container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     gap: 1rem;
 }
 
 .plans-container>div{
     margin:1rem 0;
-    flex-basis: 24%;
+    flex-grow: 1;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -561,11 +578,14 @@ img {
     padding-left: 32px;
 }
 
+.plan-spec>ul>li{
+    color: rgb(235, 235, 235);
+}
+
 .plans-click{
     background-color: var(--col-white);
     border-radius: 0 0 24px 24px;
     padding: 0.48rem 1.25rem;
-    cursor: pointer;
 }
 
 .plans-click>h3{
@@ -645,7 +665,18 @@ img {
         height: 0;
         width: 0;
         opacity: 0;
-        animation-name: none;
+        -webkit-animation-name: none;
+                animation-name: none;
+    }
+
+    @-webkit-keyframes bubbleSmall {
+        from{
+            transform: translateY(32px);
+        }
+        to{
+            transform: translateY(0px);
+
+        }
     }
 
     @keyframes bubbleSmall {
@@ -658,12 +689,30 @@ img {
         }
     }
 
+    @-webkit-keyframes bubbleBig {
+        from{
+            transform: translateY(0px);
+        }
+        to{
+            transform: translateY(24px);
+        }
+    }
+
     @keyframes bubbleBig {
         from{
             transform: translateY(0px);
         }
         to{
             transform: translateY(24px);
+        }
+    }
+
+    @keyframes bubblePlan {
+        from{
+            transform: translateY(0px);
+        }
+        to{
+            transform: translateY(16px);
         }
     }
 
@@ -834,9 +883,33 @@ img {
     .project{
         margin-bottom: 8rem;
     }
-.plans-container{
-flex-direction: row;
-gap: 1em;
-justify-content: center;
-}
+
+    .plans-container{
+        flex-direction: row;
+        gap: 1em;
+        justify-content: center;
+        align-items: stretch;
+        position: relative;
+    }
+
+    .plans-container::before{
+        content: "";
+        z-index: 1;
+        position: absolute;
+        top: -4rem;
+        right: min(20%, calc(50% - 26rem));
+        width: 18rem;
+        height: 18rem;
+        border-radius: 100%;
+        background-color: var(--text-main-purple);
+        animation: bubblePlan 2.4s infinite alternate-reverse;
+
+    }
+
+    .plans-container>div{
+        z-index: 2;
+        flex: 0 0 auto;
+        max-width: 30rem;
+        margin: 1rem 0;
+    }
 }
