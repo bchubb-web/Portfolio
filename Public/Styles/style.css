@@ -11,6 +11,8 @@
     --text-bold-orange: #ea952b;
     --text-simple-orange: #da7f11;
 
+    --col-white:hsl(0, 0%, 90%);
+
     --font-work-em: 'Parisienne',cursive;
     --text-work-em:#ab2328;
 }
@@ -470,8 +472,104 @@ img {
 .sales-point>a{
     color: #222;
 }
+
 .sales-point>p{
     color: rgb(230, 230, 230);
+}
+
+/* --EXPECT-- */
+
+.expect-header{
+    width: fit-content;
+    padding: 0.24rem 1.8rem 0.8rem;
+    margin: 3rem 0 0 20%;
+    background-color: var(--bg-accent-purple);
+}
+.expect-header>h2{
+    margin-bottom: 0;
+}
+
+.expect-contain{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2.4rem 2rem 2.4rem;
+    background-color: var(--bg-main-purple);
+}
+
+.expect-contain>ul{
+    flex-basis: 100%;
+}
+
+
+
+.expect-contain>ul>li{
+    line-height: 1.85;
+    color: rgb(230, 230, 230);
+}
+
+
+/* --PLANS-- */
+
+.plans{
+    padding: 1rem;
+    text-align: center;
+    margin: 4rem 0;
+
+}
+
+.plans>h1{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    color: var(--text-bold-orange);
+}
+
+.plans-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.plans-container>div{
+    margin:1rem 0;
+    flex-basis: 24%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 24px;
+    background-color: var(--bg-accent-purple);
+    border: 1px solid var(--text-main-purple);
+}
+
+.plan-name{
+    background-color: var(--bg-accent-purple);
+    border-radius: 24px 24px 0 0;
+    padding: 2rem 1rem 0rem;
+}
+
+.plan-spec{
+    background-color: var(--bg-accent-purple);
+    padding: 1rem 0;
+    padding-right: 24px;
+}
+
+.plan-spec>ul{
+    padding-left: 32px;
+}
+
+.plans-click{
+    background-color: var(--col-white);
+    border-radius: 0 0 24px 24px;
+    padding: 0.48rem 1.25rem;
+    cursor: pointer;
+}
+
+.plans-click>h3{
+    color: var(--bg-accent-purple);
 }
 
 
@@ -480,12 +578,15 @@ img {
 /* --FOOTER-- */
 
 .footer{
-    height: 16vh;
-    background-color: #1c1471;
+    height: 18em;
+    border-top: 2px solid var(--text-simple-grey);
     position: relative;
 }
 
-.footer::before{
+
+
+/*.footer::before{
+    content: "";
     width: 80%;
     position: absolute;
     left: 10%;
@@ -493,7 +594,7 @@ img {
     border-radius: 25%;
     top: -4;
     background-color: rgb(235, 235, 235);
-}
+}*/
 
 
 /*---DESKTOP-ONLY---*/
@@ -664,6 +765,14 @@ img {
 
     }
 
+    .expect-contain{
+        flex-direction: row;
+    }
+
+    .expect-contain>ul>li{
+        padding: 0.8rem 0 ;
+    }
+
 }
 
 @media (min-width: 70rem) {
@@ -711,7 +820,7 @@ img {
     .sales-points {
         max-width: 84rem;
         border-radius: 12px;
-        margin: 0 10rem 3rem;
+        margin: 0 10rem 8rem;
         padding: 6vh 6rem;
         text-align: left;
         flex-direction: row;
@@ -725,4 +834,9 @@ img {
     .project{
         margin-bottom: 8rem;
     }
+.plans-container{
+flex-direction: row;
+gap: 1em;
+justify-content: center;
+}
 }
